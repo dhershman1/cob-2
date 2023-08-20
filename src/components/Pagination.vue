@@ -1,13 +1,21 @@
 <template>
   <div class="pagination">
     <ul>
-      <a href="#">
+      <span @click="paginationStore.prevPage()">
         <li>Previous</li>
-      </a>
-      <span>Page 1</span>
-      <a href="#" class="is-active">
+      </span>
+      <p>Page {{ paginationStore.currentPage }}</p>
+      <span @click="paginationStore.nextPage()">
         <li>Next</li>
-      </a>
+      </span>
     </ul>
   </div>
 </template>
+
+<script setup>
+import { usePaginationStore } from '../store/pagination.js'
+
+const paginationStore = usePaginationStore()
+
+console.log(paginationStore)
+</script>
