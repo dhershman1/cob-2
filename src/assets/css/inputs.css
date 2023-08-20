@@ -4,51 +4,27 @@
   margin: 0;
   font-size: 14px;
   background-color: var(--white);
-  border: 1px solid var(--lightgrey);
+  border: 1px solid var(--dark-grey);
   border-radius: 6px;
   transition: all 0.2s;
 }
 
 .control:hover {
   border-color: var(--peach);
-  border-inline-end-width: 1px;
 }
 
 .control:focus {
   border-color: var(--peach);
   box-shadow: 0 0 0 2px hsla(206, 100%, 51%, 0.1);
-  border-inline-end-width: 1px;
   outline: 0;
+}
+
+label p {
+  margin: 0
 }
 /* End Control */
 
 /* Tags */
-.tags-input {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  min-height: 3rem;
-  padding: 0 .5rem;
-  border: 1px solid var(--lightgrey);
-  border-radius: 6px;
-}
-
-.tags-input:focus-within {
-  border: 1px solid var(--peach);
-}
-
-.tags-input input {
-  flex: 1;
-  border: none;
-  height: 3rem;
-  font-size: 14px;
-  padding: 4px 0 0 0;
-}
-
-.tags-input input:focus {
-  outline: transparent;
-}
-
 ul.tags {
   display: flex;
   flex-wrap: wrap;
