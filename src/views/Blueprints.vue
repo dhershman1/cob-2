@@ -4,7 +4,7 @@
     <div class="filters">
       <basic-card :title="'Filters?'">
         <template #content>
-          <p>Hewwo</p>
+          <filters />
         </template>
       </basic-card>
     </div>
@@ -44,6 +44,7 @@
 <script setup>
 import AccountCard from '../components/cards/Account.vue'
 import BasicCard from '../components/cards/Basic.vue'
+import Filters from '../components/Filters.vue'
 import Pagination from '../components/Pagination.vue'
 import PreviewCard from '../components/cards/Preview.vue'
 </script>

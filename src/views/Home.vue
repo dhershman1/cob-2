@@ -3,6 +3,10 @@
     <basic-card :title="'News'">
         <template #content>
           <p>News</p>
+          <input class="control" type="text">
+          <label>Radio Test
+            <input class="control" type="radio">
+          </label>
         </template>
     </basic-card>
     <basic-card :title="'Most Recent Blueprints'">

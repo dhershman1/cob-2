@@ -1,4 +1,5 @@
-input {
+/* Control */
+.control {
   padding: 0.2rem 0.6rem;
   margin: 0;
   font-size: 14px;
@@ -8,14 +9,80 @@ input {
   transition: all 0.2s;
 }
 
-input:hover {
+.control:hover {
   border-color: var(--peach);
   border-inline-end-width: 1px;
 }
 
-input:focus {
+.control:focus {
   border-color: var(--peach);
   box-shadow: 0 0 0 2px hsla(206, 100%, 51%, 0.1);
   border-inline-end-width: 1px;
   outline: 0;
 }
+/* End Control */
+
+/* Tags */
+.tags-input {
+  display: flex;
+  flex-wrap: wrap;
+  border-width: 1px;
+  border-radius: .25rem;
+  padding-left: .5rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .25rem;
+}
+
+.tags-input__tag {
+  display: inline-flex;
+  line-height: 1;
+  align-items: center;
+  font-size: .875rem;
+  background-color: var(--peach);
+  color: var(--jet);
+  border-radius: .25rem;
+  user-select: none;
+  padding: .3rem;
+  margin-right: .5rem;
+  margin-bottom: .25rem;
+}
+
+.tags-input__tag:last-of-type {
+  margin-right: 0;
+}
+
+.tags-input__remove {
+  color: var(--jet);
+  font-size: 1.125rem;
+  line-height: 1;
+  background-color: transparent;
+  border: none;
+}
+
+.tags-input__remove:first-child {
+  margin-right: .25rem;
+}
+
+.tags-input__remove:last-child {
+  margin-left: .25rem;
+}
+
+.tags-input__remove:focus {
+  outline: 0;
+}
+
+.tags-input__remove:hover {
+  cursor: pointer;
+}
+
+.tags-input__text {
+  flex: 1;
+  outline: 0;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  margin-left: .5rem;
+  margin-bottom: .25rem;
+  min-width: 10rem;
+}
+/* End Tags */
