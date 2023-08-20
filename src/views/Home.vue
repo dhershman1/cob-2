@@ -1,13 +1,9 @@
 <template>
   <div class="home">
     <basic-card :title="'News'">
-        <template #content>
-          <p>News</p>
-          <input class="control" type="text">
-          <label>Radio Test
-            <input class="control" type="radio">
-          </label>
-        </template>
+      <template #content>
+        <p>News</p>
+      </template>
     </basic-card>
     <basic-card :title="'Most Recent Blueprints'">
       <template #content>

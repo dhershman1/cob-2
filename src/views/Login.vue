@@ -4,26 +4,60 @@
       <template #content>
         <div class="login">
           <section class="login__switch">
-            <p :class="formStatus.signin" @click="isSignup = false">
+            <p
+              :class="formStatus.signin"
+              @click="isSignup = false"
+            >
               Sign In
             </p>
-            <p :class="formStatus.signup" @click="isSignup = true">
+            <p
+              :class="formStatus.signup"
+              @click="isSignup = true"
+            >
               Sign Up
             </p>
           </section>
           <section class="login__form">
             <form>
-              <input v-model="username" type="text" class="login__input" name="login" placeholder="Email">
-              <transition name="slide-fade" mode="out-in">
-                <input v-show="isSignup" v-model="displayName" type="text" class="login__input" name="displayName"
-                  placeholder="Display Name">
+              <input
+                v-model="username"
+                type="text"
+                class="login__input"
+                name="login"
+                placeholder="Email"
+              >
+              <transition
+                name="slide-fade"
+                mode="out-in"
+              >
+                <input
+                  v-show="isSignup"
+                  v-model="displayName"
+                  type="text"
+                  class="login__input"
+                  name="displayName"
+                  placeholder="Display Name"
+                >
               </transition>
-              <input v-model="password" type="text" class="login__input" name="login" placeholder="Password">
-              <input type="submit" class="login__btn" :value="submitTxt">
+              <input
+                v-model="password"
+                type="text"
+                class="login__input"
+                name="login"
+                placeholder="Password"
+              >
+              <input
+                type="submit"
+                class="login__btn"
+                :value="submitTxt"
+              >
             </form>
           </section>
           <section class="login__foot">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a
+              class="underlineHover"
+              href="#"
+            >Forgot Password?</a>
           </section>
         </div>
       </template>
@@ -33,7 +67,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import BasicCard from '@/components/BasicCard'
+import BasicCard from '../components/cards/Basic.vue'
 
 const isSignup = ref(false)
 const username = ref('')
@@ -42,7 +76,7 @@ const displayName = ref('')
 const remember = ref(false)
 
 const submitTxt = computed(() => {
-  if (isSignup) {
+  if (isSignup.value) {
     return 'Register'
   }
 
@@ -50,7 +84,7 @@ const submitTxt = computed(() => {
 })
 
 const formStatus = computed(() => {
-  if (isSignup) {
+  if (isSignup.value) {
     return {
       signup: 'active',
       signin: 'inactive'

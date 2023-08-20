@@ -7,7 +7,9 @@
         </router-link>
       </div>
       <div class="navbar__links">
-        <router-link to="/">Home</router-link>
+        <router-link to="/">
+          Home
+        </router-link>
         <router-link to="/blueprints">
           Blueprints
         </router-link>
@@ -23,7 +25,7 @@
       </div>
     </header>
     <main>
-      <router-view></router-view>
+      <router-view />
     </main>
     <footer>
       <p>
