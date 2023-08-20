@@ -2,7 +2,7 @@
   --white: hsl(0, 0%, 100%);
   --jet: hsl(120, 1%, 17%);
   --latte: hsl(49, 60%, 93%);
-  --nickle: hsl(44, 7%, 41%);
+  --nickle: hsl(44, 5%, 59%);
   --lightgrey: hsl(60, 3%, 93%);
   --shadow: hsla(0, 0%, 0%, 0.13);
   --peach: hsl(5, 100%, 76%);
@@ -47,6 +47,11 @@ main {
 }
 
 .home {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.blueprints {
   display: grid;
   grid-template-areas: 'aside news'
                        'previews previews'
