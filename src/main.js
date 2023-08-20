@@ -3,8 +3,6 @@ import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
 
-import './assets/fonts/icofont.woff'
-import './assets/fonts/icofont.woff2'
 import './assets/css/main.css'
 import './assets/css/cards.css'
 import './assets/css/pagination.css'
