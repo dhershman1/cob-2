@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const usePaginationStore = defineStore('pagination', () => {
+  // TODO: Make sure totalPages gets set by a db call
   const currentPage = ref(1)
   const totalPages = ref(5)
 
