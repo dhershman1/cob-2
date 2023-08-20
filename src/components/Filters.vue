@@ -1,16 +1,30 @@
 <template>
   <div>
     <section class="tags-input">
-      <span v-for="tag in tags" class="tags-input__tag">
-        <span>{{ tag }}</span>
-        <button type="button" class="tags-input__remove" @click="removeTag(tag)">&times;</button>
-      </span>
-      <input
-        class="tags-input__text"
-        placeholder="Add Tag"
-        @keydown.enter.prevent="addTag"
-        v-model="newTag"
-      >
+      <ul class="tags">
+        <li
+          v-for="(tag, i) in tags"
+          :key="i"
+          class="tag"
+        >
+          <span class="tag__title">{{ tag }}</span>
+          <button
+            type="button"
+            class="tag__close"
+            @click="removeTag(tag)"
+          >
+            x
+          </button>
+        </li>
+      </ul>
+      <label for="tags">Add Tag
+        <input
+          v-model="newTag"
+          name="tags"
+          type="text"
+          @keyup.enter.prevent="addTag"
+        >
+      </label>
     </section>
   </div>
 </template>

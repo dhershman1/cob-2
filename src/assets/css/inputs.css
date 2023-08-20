@@ -25,64 +25,72 @@
 /* Tags */
 .tags-input {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
-  border-width: 1px;
-  border-radius: .25rem;
-  padding-left: .5rem;
-  padding-right: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .25rem;
+  min-height: 3rem;
+  padding: 0 .5rem;
+  border: 1px solid var(--lightgrey);
+  border-radius: 6px;
 }
 
-.tags-input__tag {
-  display: inline-flex;
-  line-height: 1;
-  align-items: center;
-  font-size: .875rem;
-  background-color: var(--peach);
-  color: var(--jet);
-  border-radius: .25rem;
-  user-select: none;
-  padding: .3rem;
-  margin-right: .5rem;
-  margin-bottom: .25rem;
+.tags-input:focus-within {
+  border: 1px solid var(--peach);
 }
 
-.tags-input__tag:last-of-type {
-  margin-right: 0;
-}
-
-.tags-input__remove {
-  color: var(--jet);
-  font-size: 1.125rem;
-  line-height: 1;
-  background-color: transparent;
-  border: none;
-}
-
-.tags-input__remove:first-child {
-  margin-right: .25rem;
-}
-
-.tags-input__remove:last-child {
-  margin-left: .25rem;
-}
-
-.tags-input__remove:focus {
-  outline: 0;
-}
-
-.tags-input__remove:hover {
-  cursor: pointer;
-}
-
-.tags-input__text {
+.tags-input input {
   flex: 1;
-  outline: 0;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  margin-left: .5rem;
-  margin-bottom: .25rem;
-  min-width: 10rem;
+  border: none;
+  height: 3rem;
+  font-size: 14px;
+  padding: 4px 0 0 0;
+}
+
+.tags-input input:focus {
+  outline: transparent;
+}
+
+ul.tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.tag {
+  width: auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  padding: 0 8px;
+  font-size: 14px;
+  list-style: none;
+  border-radius: 6px;
+  margin: 0 8px 8px 0;
+  background: var(--peach);
+}
+
+.tag .tag__close {
+  display: flex;
+  width: 16px;
+  height: 17px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 8px;
+  color: var(--peach);
+  border-radius: 50%;
+  background: var(--white);
+  cursor: pointer;
+  border: none;
+  align-content: center;
 }
 /* End Tags */
+
+
+@media screen and (max-width: 567px) {
+  .tags-input {
+    width: calc(100vw - 32px);
+  }
+}
