@@ -1,0 +1,21 @@
+input {
+  padding: 0.2rem 0.6rem;
+  margin: 0;
+  font-size: 14px;
+  background-color: var(--white);
+  border: 1px solid var(--lightgrey);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+input:hover {
+  border-color: var(--peach);
+  border-inline-end-width: 1px;
+}
+
+input:focus {
+  border-color: var(--peach);
+  box-shadow: 0 0 0 2px hsla(206, 100%, 51%, 0.1);
+  border-inline-end-width: 1px;
+  outline: 0;
+}
