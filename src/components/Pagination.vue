@@ -1,16 +1,28 @@
 <template>
   <div class="pagination">
     <ul>
-      <span @click="paginationStore.firstPage()">
+      <button
+        type="button"
+        @click="paginationStore.firstPage()"
+        @keydown.enter="paginationStore.firstPage()"
+      >
         <li>First Page</li>
-      </span>
-      <span @click="paginationStore.prevPage()">
+      </button>
+      <button
+        type="button"
+        @click="paginationStore.prevPage()"
+        @keydown.enter="paginationStore.firstPage()"
+      >
         <li>Previous</li>
-      </span>
+      </button>
       <p>Page {{ paginationStore.currentPage }}</p>
-      <span @click="paginationStore.nextPage()">
+      <button
+        type="button"
+        @click="paginationStore.nextPage()"
+        @keydown.enter="paginationStore.firstPage()"
+      >
         <li>Next</li>
-      </span>
+      </button>
     </ul>
   </div>
 </template>
