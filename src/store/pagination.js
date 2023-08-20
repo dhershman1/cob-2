@@ -5,8 +5,9 @@ export const usePaginationStore = defineStore('pagination', () => {
   const currentPage = ref(1)
   const totalPages = ref(5)
 
+  // TODO: These functions will be replaced with server calls in the future
   function nextPage () {
-    if (currentPage.value < totalPages) {
+    if (currentPage.value < totalPages.value) {
       currentPage.value++
     }
   }
@@ -17,10 +18,15 @@ export const usePaginationStore = defineStore('pagination', () => {
     }
   }
 
+  function firstPage () {
+    currentPage.value = 1
+  }
+
   return {
     currentPage,
     totalPages,
     nextPage,
-    prevPage
+    prevPage,
+    firstPage
   }
 })

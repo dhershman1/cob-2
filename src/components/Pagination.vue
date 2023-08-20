@@ -1,6 +1,9 @@
 <template>
   <div class="pagination">
     <ul>
+      <span @click="paginationStore.firstPage()">
+        <li>First Page</li>
+      </span>
       <span @click="paginationStore.prevPage()">
         <li>Previous</li>
       </span>
@@ -16,6 +19,4 @@
 import { usePaginationStore } from '../store/pagination.js'
 
 const paginationStore = usePaginationStore()
-
-console.log(paginationStore)
 </script>
