@@ -2,7 +2,10 @@
   <div class="blueprints">
     <account-card />
     <div class="filters">
-      <basic-card :title="'Search'">
+      <basic-card
+        subtitle="Hello"
+        :title="'Search'"
+      >
         <template #content>
           <filters />
         </template>

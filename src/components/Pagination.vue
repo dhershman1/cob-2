@@ -3,6 +3,7 @@
     <ul>
       <button
         type="button"
+        class="btn btn__primary"
         @click="paginationStore.firstPage()"
         @keydown.enter="paginationStore.firstPage()"
       >
@@ -10,6 +11,7 @@
       </button>
       <button
         type="button"
+        class="btn btn__primary"
         @click="paginationStore.prevPage()"
         @keydown.enter="paginationStore.firstPage()"
       >
@@ -18,6 +20,7 @@
       <p>{{ $t('pagination.page') }} {{ paginationStore.currentPage }}</p>
       <button
         type="button"
+        class="btn btn__primary"
         @click="paginationStore.nextPage()"
         @keydown.enter="paginationStore.firstPage()"
       >

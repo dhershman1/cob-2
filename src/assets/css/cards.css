@@ -5,12 +5,20 @@
 }
 
 .card__title {
-  text-align: center;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 600;
+  padding: 1rem 0 0 1rem;
 }
 
-.card__title p {
+.card__subtitle {
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 12px;
+  color: var(--dark-grey);
+}
+
+.card__title p,
+.card__subtitle p {
   margin: 0;
 }
 

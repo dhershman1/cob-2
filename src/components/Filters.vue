@@ -1,63 +1,75 @@
 <template>
-  <div class="filters">
-    <section class="tags-filter">
-      <label for="tags">
-        <p>{{ $t('filters.by-tag') }}</p>
-        <input
-          v-model="newTag"
-          placeholder="Add Tag"
-          name="tags"
-          class="control tag-input"
-          type="text"
-          @keyup.enter.prevent="addTag"
-        >
-      </label>
-      <section class="tags-containter">
-        <ul class="tags">
-          <li
-            v-for="(tag, i) in tags"
-            :key="i"
-            class="tag"
+  <div class="filters__container">
+    <div class="filters">
+      <section class="tags-filter">
+        <label for="tags">
+          <p>{{ $t('filters.by-tag') }}</p>
+          <input
+            v-model="newTag"
+            placeholder="Add Tag"
+            name="tags"
+            class="control tag-input"
+            type="text"
+            @keyup.enter.prevent="addTag"
           >
-            <span class="tag__title">{{ tag }}</span>
-            <button
-              type="button"
-              class="tag__close"
-              @click="removeTag(tag)"
+        </label>
+        <section class="tags-containter">
+          <ul class="tags">
+            <li
+              v-for="(tag, i) in tags"
+              :key="i"
+              class="tag"
             >
-              {{ $t('x') }}
-            </button>
-          </li>
-        </ul>
+              <span class="tag__title">{{ tag }}</span>
+              <button
+                type="button"
+                class="tag__close"
+                @click="removeTag(tag)"
+              >
+                {{ $t('x') }}
+              </button>
+            </li>
+          </ul>
+        </section>
       </section>
-    </section>
-    <section class="name-filter">
-      <label
-        class="label-control"
-        for="blueprint-filter"
-      >
-        <p>{{ $t('filters.by-blueprint') }}</p>
-        <input
-          id="blueprint-filter"
-          name="blueprint-filter"
-          type="text"
-          class="control"
+      <section class="name-filter">
+        <label
+          class="label-control"
+          for="blueprint-filter"
         >
-      </label>
-    </section>
-    <section class="author-filter">
-      <label
-        class="label-control"
-        for="author-filter"
-      >
-        <p>{{ $t('filters.by-author') }}</p>
-        <input
-          id="author-filter"
-          name="author-filter"
-          type="text"
-          class="control"
+          <p>{{ $t('filters.by-blueprint') }}</p>
+          <input
+            id="blueprint-filter"
+            name="blueprint-filter"
+            type="text"
+            class="control"
+            @keyup.enter.prevent
+          >
+        </label>
+      </section>
+      <section class="author-filter">
+        <label
+          class="label-control"
+          for="author-filter"
         >
-      </label>
+          <p>{{ $t('filters.by-author') }}</p>
+          <input
+            id="author-filter"
+            name="author-filter"
+            type="text"
+            class="control"
+            @keyup.enter.prevent
+          >
+        </label>
+      </section>
+    </div>
+    <section class="apply-filters">
+      <button
+        class="btn btn__primary"
+        type="button"
+      >
+        {{ $t('apply') }}
+      </button>
     </section>
   </div>
 </template>
@@ -89,6 +101,17 @@ function removeTag (tag) {
 }
 
 .filters .control {
+  padding: 0.5rem;
+}
+
+.filters__container {
+  display: grid;
+  grid-auto-rows: auto;
+}
+
+.apply-filters {
+  width: 100%;
+  text-align: center;
   padding: 0.5rem;
 }
 </style>
