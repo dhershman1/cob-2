@@ -6,22 +6,22 @@
         @click="paginationStore.firstPage()"
         @keydown.enter="paginationStore.firstPage()"
       >
-        <li>First Page</li>
+        <li>{{ $t('pagination.first-page') }}</li>
       </button>
       <button
         type="button"
         @click="paginationStore.prevPage()"
         @keydown.enter="paginationStore.firstPage()"
       >
-        <li>Previous</li>
+        <li>{{ $t('pagination.prev') }}</li>
       </button>
-      <p>Page {{ paginationStore.currentPage }}</p>
+      <p>{{ $t('pagination.page') }} {{ paginationStore.currentPage }}</p>
       <button
         type="button"
         @click="paginationStore.nextPage()"
         @keydown.enter="paginationStore.firstPage()"
       >
-        <li>Next</li>
+        <li>{{ $t('pagination.next') }}</li>
       </button>
     </ul>
   </div>

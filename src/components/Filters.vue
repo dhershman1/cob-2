@@ -2,7 +2,7 @@
   <div class="filters">
     <section class="tags-filter">
       <label for="tags">
-        <p>Filter by Tags</p>
+        <p>{{ $t('filters.by-tag') }}</p>
         <input
           v-model="newTag"
           placeholder="Add Tag"
@@ -25,7 +25,7 @@
               class="tag__close"
               @click="removeTag(tag)"
             >
-              x
+              {{ $t('x') }}
             </button>
           </li>
         </ul>
@@ -36,7 +36,7 @@
         class="label-control"
         for="blueprint-filter"
       >
-        <p>Filter by Blueprint</p>
+        <p>{{ $t('filters.by-blueprint') }}</p>
         <input
           id="blueprint-filter"
           name="blueprint-filter"
@@ -50,7 +50,7 @@
         class="label-control"
         for="author-filter"
       >
-        <p>Filter by Author</p>
+        <p>{{ $t('filters.by-author') }}</p>
         <input
           id="author-filter"
           name="author-filter"

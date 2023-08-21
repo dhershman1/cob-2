@@ -27,7 +27,7 @@
     <section class="description">
       <slot name="preview-content" />
       <p class="read-more">
-        <a href="#">Visit</a>
+        <a href="#">{{ $t('visit') }}</a>
       </p>
     </section>
   </div>

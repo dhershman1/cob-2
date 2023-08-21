@@ -1,0 +1,27 @@
+{
+  "cob": "Captain of Blueprints",
+  "cob-about": "Cob (Captain of Blueprints) is a simple app built for blueprint storage, it's purpose is both an interactive archive, as well as a place for the community to find and use blueprints within the game",
+  "filters": {
+    "by-author": "Filter by Author",
+    "by-blueprint": "Filter by Blueprint",
+    "by-tag": "Filter by Tag"
+  },
+  "made-with": "Made with ❤️ by {0} \u00A9 2023",
+  "my-name": "Dustin Hershman",
+  "nav": {
+    "home": "Home",
+    "blueprints": "Blueprints",
+    "about": "About",
+    "upload": "Upload",
+    "profile": "Profile"
+  },
+  "pagination": {
+    "first-page": "First Page",
+    "next": "Next",
+    "page": "Page",
+    "prev": "Previous"
+  },
+  "visit": "Visit",
+  "x": "x",
+  "what-is-cob": "What is Cob?"
+}

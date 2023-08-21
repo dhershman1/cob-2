@@ -1,5 +1,14 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <basic-card title="About Cob">
+      <template #content>
+        <h2>{{ $t('what-is-cob') }}</h2>
+        <p>{{ $t('cob-about') }}</p>
+      </template>
+    </basic-card>
   </div>
 </template>
+
+<script setup>
+import BasicCard from '../components/cards/Basic.vue'
+</script>

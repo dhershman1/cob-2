@@ -3,24 +3,24 @@
     <header class="navbar">
       <div class="brand">
         <router-link to="/">
-          Captain of Blueprints
+          {{ $t('cob') }}
         </router-link>
       </div>
       <div class="navbar__links">
         <router-link to="/">
-          Home
+          {{ $t('nav.home') }}
         </router-link>
         <router-link to="/blueprints">
-          Blueprints
+          {{ $t('nav.blueprints') }}
         </router-link>
         <router-link to="/about">
-          About
+          {{ $t('nav.about') }}
         </router-link>
         <router-link to="/upload">
-          Upload
+          {{ $t('nav.upload') }}
         </router-link>
         <router-link to="/profile">
-          Profile
+          {{ $t('nav.profile') }}
         </router-link>
       </div>
     </header>
@@ -28,13 +28,16 @@
       <router-view />
     </main>
     <footer>
-      <p>
-        Made with &#128151; by <a
+      <i18n-t
+        keypath="made-with"
+        tag="p"
+      >
+        <a
           class="link"
           href="https://github.com/dhershman1"
           target="_blank"
-        >Dustin Hershman</a> &copy; 2023
-      </p>
+        >{{ $t('my-name') }}</a>
+      </i18n-t>
     </footer>
   </div>
 </template>

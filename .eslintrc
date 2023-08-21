@@ -1,14 +1,33 @@
 {
+  "root": true,
   "env": {
     "node": true,
     "es6": true
   },
+  "globals": {
+    "$t": "readonly"
+  },
   "extends": [
     "plugin:vue/recommended",
+    "plugin:@intlify/vue-i18n/recommended",
     "plugin:vuejs-accessibility/recommended",
     "@vue/standard"
   ],
   "rules": {
+    "@intlify/vue-i18n/no-unused-keys": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".vue"
+        ]
+      }
+    ],
     "vue/multi-word-component-names": "off"
+  },
+  "settings": {
+    "vue-i18n": {
+      "localeDir": "./src/locales/*.js"
+    }
   }
 }
