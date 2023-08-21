@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { usePaginationStore } from '../store/pagination.js'
+import { usePaginationStore } from '../stores/pagination.js'
 
 const paginationStore = usePaginationStore()
 </script>
