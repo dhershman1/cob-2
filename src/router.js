@@ -2,6 +2,11 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import About from './views/About.vue'
 import Home from './views/Home.vue'
+import Blueprints from './views/Blueprints.vue'
+import Upload from './views/Upload.vue'
+import Profile from './views/Profile.vue'
+import Login from './views/Login.vue'
+import Blueprint from './views/Blueprint.vue'
 
 const routes = [{
   path: '/',
@@ -14,19 +19,23 @@ const routes = [{
 }, {
   path: '/blueprints',
   name: 'blueprints',
-  component: () => import(/* webpackChunkName: "blueprints" */ './views/Blueprints.vue')
+  component: Blueprints
 }, {
   path: '/upload',
   name: 'upload',
-  component: () => import(/* webpackChunkName: "upload" */ './views/Upload.vue')
+  component: Upload
 }, {
   path: '/profile',
   name: 'profile',
-  component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue')
+  component: Profile
 }, {
   path: '/login',
   name: 'login',
-  component: () => import(/* webpackChunkName: "login" */ './views/Login.vue')
+  component: Login
+}, {
+  path: '/blueprint/:id',
+  name: 'blueprint',
+  component: Blueprint
 }
 ]
 
