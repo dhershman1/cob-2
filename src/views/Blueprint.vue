@@ -61,42 +61,28 @@
       </div>
     </div>
     <div class="blueprint__details">
-      <section class="tabs">
-        <button
-          v-for="(tab, i) in tabsList"
-          :key="i"
-          class="tab"
-          @click="setTab(i)"
-          @keyup.tab="setTab(i)"
-        >
-          <span :class="{ 'tab--active': i === selectedTab }">
-            {{ tab.title }}
-          </span>
-        </button>
-      </section>
+      <tabs :tabs="tabsList" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import BasicCard from '../components/cards/Basic.vue'
+import Tabs from '../components/Tabs.vue'
 import noImgUrl from '../assets/imgs/no-image.png'
 
-const selectedTab = ref(0)
 const tabsList = computed(() => {
   return [
     {
-      title: 'Details'
+      title: 'Details',
+      data: '### Hello Content'
     }, {
-      title: 'Changelog'
+      title: 'Changelog',
+      data: 'Goodbye Content'
     }
   ]
 })
-
-function setTab (i) {
-  selectedTab.value = i
-}
 </script>
 
 <style scoped>
@@ -147,9 +133,5 @@ function setTab (i) {
 .blueprint__info__table td:last-child {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--dark-grey);
-}
-
-.tabs button {
-  border: none;
 }
 </style>

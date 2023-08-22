@@ -3,11 +3,20 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  border-bottom: 1px solid var(--grey);
 }
 
-.tabs .tab {
+.tabs .tab__buttons {
+  display: flex;
+  border-bottom: 1px solid var(--grey);
+  padding-bottom: 0.75rem;
+}
+
+.tabs .tab__content {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.tabs .tab__buttons .tab {
   font-size: 18px;
   outline: none;
   transition: all 0.3s;
@@ -15,15 +24,15 @@
   background: transparent;
   cursor: pointer;
   margin: 0 0 0 1rem;
-
 }
 
-.tabs .tab--active {
+.tabs .tab__buttons .tab--active {
   color: var(--peach);
   text-shadow: var(--peach-shadow);
   border-bottom: 2px solid var(--peach);
+  padding-bottom: 0.75rem;
 }
 
-.tabs .tab:hover {
+.tabs .tab__buttons .tab:hover {
   color: var(--peach-lighten);
 }

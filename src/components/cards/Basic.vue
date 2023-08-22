@@ -2,7 +2,7 @@
   <div :class="cardClass">
     <section
       v-show="props.title"
-      class="card__title"
+      :class="titleClass"
     >
       <p>{{ props.title }}</p>
     </section>
@@ -45,10 +45,17 @@ const props = defineProps({
 const cardClass = computed(() => {
   return `card card--${props.size}`
 })
+const titleClass = computed(() => {
+  if (props.separator) {
+    return 'card__title separator'
+  }
+
+  return 'card__title'
+})
 </script>
 
 <style scoped>
-.card__title {
+.separator {
   border-bottom: 1px solid var(--grey);
 }
 </style>
