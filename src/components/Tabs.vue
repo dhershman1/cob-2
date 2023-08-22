@@ -1,7 +1,7 @@
 <template>
   <div class="tabs__container">
-    <section class="tabs">
-      <section class="tab__buttons">
+    <div class="tabs">
+      <div class="tab__buttons">
         <button
           v-for="(tab, i) in props.tabs"
           :key="i"
@@ -13,13 +13,13 @@
             {{ tab.title }}
           </span>
         </button>
-      </section>
-      <section class="tab__content">
+      </div>
+      <div class="tab__content">
         <parsed-content
           :content="selectedData"
         />
-      </section>
-    </section>
+      </div>
+    </div>
   </div>
 </template>
 

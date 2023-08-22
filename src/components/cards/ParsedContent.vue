@@ -1,10 +1,10 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <section class="card card--full">
+  <div class="card card--full">
     <div class="card__content">
-      <section v-html="parsedContent" />
+      <div v-html="parsedContent" />
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
