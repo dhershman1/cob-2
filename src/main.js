@@ -9,6 +9,7 @@ import './assets/css/cards.css'
 import './assets/css/pagination.css'
 import './assets/css/inputs.css'
 import './assets/css/button.css'
+import './assets/css/tabs.css'
 import './assets/icofont.min.css'
 
 const pinia = createPinia()

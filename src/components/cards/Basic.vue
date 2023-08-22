@@ -30,6 +30,10 @@ const props = defineProps({
     type: String,
     default: null
   },
+  separator: {
+    type: Boolean,
+    default: false
+  },
   size: {
     type: String,
     default: 'full',
@@ -42,3 +46,9 @@ const cardClass = computed(() => {
   return `card card--${props.size}`
 })
 </script>
+
+<style scoped>
+.card__title {
+  border-bottom: 1px solid var(--grey);
+}
+</style>

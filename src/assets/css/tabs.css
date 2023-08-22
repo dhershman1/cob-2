@@ -1,0 +1,29 @@
+.tabs {
+  color: var(--jet);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border-bottom: 1px solid var(--grey);
+}
+
+.tabs .tab {
+  font-size: 18px;
+  outline: none;
+  transition: all 0.3s;
+  padding: 0 0.75rem 0;
+  background: transparent;
+  cursor: pointer;
+  margin: 0 0 0 1rem;
+
+}
+
+.tabs .tab--active {
+  color: var(--peach);
+  text-shadow: var(--peach-shadow);
+  border-bottom: 2px solid var(--peach);
+}
+
+.tabs .tab:hover {
+  color: var(--peach-lighten);
+}

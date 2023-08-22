@@ -7,6 +7,7 @@
     "by-blueprint": "Filter by Blueprint",
     "by-tag": "Filter by Tag"
   },
+  "info": "Info",
   "made-with": "Made with ❤️ by {0} \u00A9 2023",
   "my-name": "Dustin Hershman",
   "nav": {
@@ -22,6 +23,8 @@
     "page": "Page",
     "prev": "Previous"
   },
+  "preview": "Preview",
+  "tags": "Tags",
   "visit": "Visit",
   "x": "x",
   "what-is-cob": "What is Cob?"
