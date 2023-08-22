@@ -40,6 +40,7 @@
           <p>{{ $t('filters.by-blueprint') }}</p>
           <input
             id="blueprint-filter"
+            v-model="blueprintName"
             name="blueprint-filter"
             type="text"
             class="control"
@@ -55,6 +56,7 @@
           <p>{{ $t('filters.by-author') }}</p>
           <input
             id="author-filter"
+            v-model="author"
             name="author-filter"
             type="text"
             class="control"
@@ -67,6 +69,8 @@
       <button
         class="btn btn__primary"
         type="button"
+        @click="applyFilters()"
+        @keyup.enter="applyFilters()"
       >
         {{ $t('apply') }}
       </button>
@@ -75,10 +79,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
+const router = useRouter()
 const tags = ref([])
 const newTag = ref('')
+const author = ref('')
+const blueprintName = ref('')
+
+onMounted(() => {
+  tags.value = route.query.tags ? route.query.tags.split('|') : []
+  author.value = route.query.author || ''
+  blueprintName.value = route.query.blueprint || ''
+})
 
 function addTag () {
   if (tags.value.includes(newTag.value) || newTag.value.trim().length === 0) {
@@ -91,6 +106,16 @@ function addTag () {
 
 function removeTag (tag) {
   tags.value = tags.value.filter(t => t !== tag)
+}
+
+function applyFilters () {
+  router.replace({
+    query: {
+      author: author.value,
+      tags: tags.value.join('|'),
+      blueprint: blueprintName.value
+    }
+  })
 }
 </script>
 
