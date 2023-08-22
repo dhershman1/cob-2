@@ -1,5 +1,12 @@
 {
   "apply": "Apply",
+  "blueprint-info": {
+    "author": "Author",
+    "date-created": "Date Created",
+    "date-updated": "Date Updated",
+    "favorites": "Favorites",
+    "version": "Version"
+  },
   "cob": "Captain of Blueprints",
   "cob-about": "Cob (Captain of Blueprints) is a simple app built for blueprint storage, it's purpose is both an interactive archive, as well as a place for the community to find and use blueprints within the game",
   "filters": {
