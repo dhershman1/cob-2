@@ -6,7 +6,7 @@
           <template #content>
             <img
               alt="Blueprint Thumbnail"
-              :src="noImgUrl"
+              :src="thumbnail"
             >
           </template>
         </basic-card>
@@ -16,7 +16,7 @@
           <template #content>
             <ul class="tags">
               <li
-                v-for="(t, i) of ['cool', 'beans', 'macho']"
+                v-for="(t, i) of blueprintStore.blueprint.tags"
                 :key="i"
                 class="tag"
               >
@@ -34,25 +34,37 @@
                 <tr>
                   <td>
                     <i class="icofont-male" />
-                    Author
+                    {{ $t('blueprint-info.author') }}
                   </td>
-                  <td>Killparadise</td>
+                  <td>{{ blueprintInfo.author }}</td>
                 </tr>
                 <tr>
-                  <td><i class="icofont-calendar" />Created</td>
-                  <td>A year ago</td>
+                  <td>
+                    <i class="icofont-calendar" />
+                    {{ $t('blueprint-info.date-created') }}
+                  </td>
+                  <td>{{ blueprintInfo.dateCreated }}</td>
                 </tr>
                 <tr>
-                  <td><i class="icofont-clock-time" />Last Updated</td>
-                  <td>10 Days Ago</td>
+                  <td>
+                    <i class="icofont-clock-time" />
+                    {{ $t('blueprint-info.date-updated') }}
+                  </td>
+                  <td>{{ blueprintInfo.dateUpdated }}</td>
                 </tr>
                 <tr>
-                  <td><i class="icofont-heart" />Favorites</td>
-                  <td>7</td>
+                  <td>
+                    <i class="icofont-heart" />
+                    {{ $t('blueprint-info.favorites') }}
+                  </td>
+                  <td>{{ blueprintInfo.favorites }}</td>
                 </tr>
                 <tr>
-                  <td><i class="icofont-label" />Version</td>
-                  <td>1.1.0</td>
+                  <td>
+                    <i class="icofont-label" />
+                    {{ $t('blueprint-info.version') }}
+                  </td>
+                  <td>{{ blueprintInfo.version }}</td>
                 </tr>
               </tbody>
             </table>
@@ -67,21 +79,36 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import BasicCard from '../components/cards/Basic.vue'
 import Tabs from '../components/Tabs.vue'
 import noImgUrl from '../assets/imgs/no-image.png'
+import { useBlueprintStore } from '../stores/blueprint'
+
+const route = useRoute()
+const blueprintStore = useBlueprintStore()
+
+onMounted(async () => {
+  await blueprintStore.fetchBlueprint(route.params.id)
+})
 
 const tabsList = computed(() => {
   return [
     {
       title: 'Details',
-      data: '### Hello Content'
+      data: blueprintStore.blueprint.details
     }, {
       title: 'Changelog',
-      data: 'Goodbye Content'
+      data: blueprintStore.blueprint.changelog
     }
   ]
+})
+const thumbnail = computed(() => {
+  return blueprintStore.blueprint.thumbnail || noImgUrl
+})
+const blueprintInfo = computed(() => {
+  return blueprintStore.blueprint.info
 })
 </script>
 
