@@ -73,7 +73,10 @@
       </div>
     </div>
     <div class="blueprint__details">
-      <tabs :tabs="tabsList" />
+      <tabs
+        :parse-content="true"
+        :tabs="tabsList"
+      />
     </div>
   </div>
 </template>

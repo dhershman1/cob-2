@@ -16,8 +16,14 @@
       </div>
       <div class="tab__content">
         <parsed-content
+          v-if="parseContent"
           :content="selectedData"
         />
+        <basic-card v-else>
+          <template #content>
+            <p>{{ selectedData }}</p>
+          </template>
+        </basic-card>
       </div>
     </div>
   </div>
@@ -26,11 +32,17 @@
 <script setup>
 import { computed, ref } from 'vue'
 import ParsedContent from './cards/ParsedContent.vue'
+import BasicCard from './cards/Basic.vue'
 
 const props = defineProps({
   tabs: {
     type: Object,
     required: true
+  },
+  // Tell this component to expect markdown content
+  parseContent: {
+    type: Boolean,
+    required: false
   }
 })
 const selectedTab = ref(0)
