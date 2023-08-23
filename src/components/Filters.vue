@@ -2,17 +2,13 @@
   <div class="filters__container">
     <div class="filters">
       <section class="tags-filter">
-        <label for="tags">
-          <p>{{ $t('filters.by-tag') }}</p>
-          <input
-            v-model="newTag"
-            placeholder="Add Tag"
-            name="tags"
-            class="control tag-input"
-            type="text"
-            @keyup.enter.prevent="addTag"
-          >
-        </label>
+        <auto-complete
+          for-id="tags"
+          placeholder="Add Tag"
+          :items="listedTags"
+          :current-words="tags"
+          @select-item="addTag"
+        />
         <section class="tags-containter">
           <ul class="tags">
             <li
@@ -81,27 +77,21 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import AutoComplete from './inputs/AutoComplete.vue'
 
 const route = useRoute()
 const router = useRouter()
 const tags = ref([])
-const newTag = ref('')
 const author = ref('')
 const blueprintName = ref('')
+const listedTags = ['foo', 'food', 'bar', 'yolo', 'cool', 'beans', 'football']
 
-onMounted(() => {
-  tags.value = route.query.tags ? route.query.tags.split('|') : []
-  author.value = route.query.author || ''
-  blueprintName.value = route.query.blueprint || ''
-})
-
-function addTag () {
-  if (tags.value.includes(newTag.value) || newTag.value.trim().length === 0) {
+function addTag (tag) {
+  if (tags.value.includes(tag) || tag.trim().length === 0) {
     return
   }
 
-  tags.value.push(newTag.value)
-  newTag.value = ''
+  tags.value.push(tag)
 }
 
 function removeTag (tag) {
@@ -117,6 +107,12 @@ function applyFilters () {
     }
   })
 }
+
+onMounted(() => {
+  tags.value = route.query.tags ? route.query.tags.split('|') : []
+  author.value = route.query.author || ''
+  blueprintName.value = route.query.blueprint || ''
+})
 </script>
 
 <style scoped>
@@ -125,9 +121,9 @@ function applyFilters () {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.filters .control {
+/* .filters .control {
   padding: 0.5rem;
-}
+} */
 
 .filters__container {
   display: grid;
