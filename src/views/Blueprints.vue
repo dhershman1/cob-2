@@ -1,9 +1,9 @@
 <template>
   <div class="blueprints">
-    <account-card />
+    <account-card class="account" />
     <div class="filters">
       <basic-card
-        subtitle="Hello"
+        subtitle="Fitler down your blueprint results"
         :title="'Search'"
       >
         <template #content>
@@ -15,7 +15,7 @@
       <div>
         <preview-card>
           <template #preview-content>
-            <h1>Tavern Build</h1>
+            <h1>Tavern Build LORUM IPSUM EXTRA TEXT OMG</h1>
             <h2>It's a Tavern! Whoa!</h2>
             <p>Something something, booze and unlimited power!</p>
           </template>
@@ -56,11 +56,24 @@ import PreviewCard from '../components/cards/Preview.vue'
 .previews {
   grid-area: previews;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
 }
 
 .filters {
-  grid-area: news;
+  grid-area: filters;
+}
+
+.filters__container {
+  display: grid;
+  column-gap: 1rem;
+}
+
+/* Media Tags */
+@media only screen and (max-width: 768px) {
+  .previews {
+    grid-template-columns: 0fr;
+    column-gap: 0;
+  }
 }
 </style>

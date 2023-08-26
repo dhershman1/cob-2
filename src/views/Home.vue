@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <basic-card :title="'News'">
+    <basic-card title="News">
       <template #content>
         <p>News</p>
       </template>
     </basic-card>
-    <basic-card :title="'Most Recent Blueprints'">
+    <basic-card title="Most Recent Blueprints">
       <template #content>
         <p>Most Recent Blueprints</p>
       </template>

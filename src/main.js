@@ -5,6 +5,7 @@ import i18n from './i18n'
 import App from './App.vue'
 
 import './assets/css/main.css'
+import './assets/css/navbar.css'
 import './assets/css/cards.css'
 import './assets/css/pagination.css'
 import './assets/css/inputs.css'

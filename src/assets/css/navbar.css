@@ -1,0 +1,183 @@
+/* Navbar */
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: var(--jet);
+  opacity: .8;
+  align-content: center;
+  justify-content: center;
+}
+
+header .brand {
+  font-size: 24px;
+  padding: 1rem;
+  width: 30%;
+}
+
+header .brand a {
+  text-decoration: none;
+  color: var(--peach);
+}
+
+.brand--sm-view {
+  display: none;
+}
+
+.navbar {
+  width: 70%;
+  text-align: center;
+  transition: transform 400ms ease-in-out;
+  /* transform: scale(1, 0);
+  transform-origin: top; */
+}
+
+.navbar__mobile {
+  width: 70%;
+  text-align: center;
+  transition: transform 400ms ease-in-out;
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+
+.navbar__mobile {
+  display: none;
+}
+
+.navbar ul,
+.navbar__mobile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links {
+  display: flex;
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+}
+
+.navbar__mobile a {
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  color: var(--latte);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.navbar__links li {
+  width: 20%;
+  display: flex;
+  align-content: center;
+}
+
+.navbar__mobile li {
+  display: block;
+  text-align: center;
+}
+
+.navbar__links a {
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  color: var(--latte);
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar__links a:hover {
+  background-color: var(--latte);
+  color: var(--jet);
+}
+
+.navbar__links .router-link-active {
+  color: var(--peach);
+}
+
+.navbar__links .router-link-active:hover {
+  color: var(--jet);
+}
+
+.nav-toggle:checked ~ .navbar__mobile {
+  transform:scale(1);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.toggle-label {
+  display: none;
+  justify-self: end;
+  align-self: center;
+  padding: 0.5rem;
+}
+
+.toggle-label span,
+.toggle-label span::before,
+.toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2rem;
+  position: relative;
+}
+
+.toggle-label span::before {
+  bottom: .4rem;
+  content: '';
+  position: absolute;
+}
+
+.toggle-label span::after {
+  top: .4rem;
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media only screen and (max-width: 768px) {
+  .brand--sm-view {
+    display: flex;
+  }
+
+  .brand--lg-view {
+    display: none;
+  }
+
+  .toggle-label {
+    display: inline;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .navbar__mobile {
+    display: flex;
+    width: auto;
+  }
+
+  .navbar__links a {
+    opacity: 1;
+  }
+
+  .navbar__mobile ul {
+    display: flex;
+  }
+
+  .navbar__mobile ul li {
+    margin: 2rem;
+  }
+}

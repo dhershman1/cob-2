@@ -1,0 +1,192 @@
+/*Nav Bar styling*/
+header {
+  width: 100%;
+  background: var(--jet);
+  text-align: center;
+  opacity: .8;
+  z-index: 99;
+}
+
+header .brand {
+  font-size: 24px;
+  padding: 1rem;
+}
+
+header .brand a {
+  text-decoration: none;
+  color: var(--peach);
+}
+
+.brand--sm-view {
+  display: none;
+}
+
+/*
+1. Part 3: Basic header styling: background color, text-align, position, width, opacity, z-index
+2.
+*/
+
+.navbar {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  background-color: var(--background);
+  transition: transform 400ms ease-in-out;
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+
+/*
+1. Part 4: 1 Position abosolute so that it stays in the same area. Width 100%, so it takes up the full line. Centered text
+2. Part 1: After adding the checkbox in the html, add display and set it to none for the nav bar. Directly after this, add a selector for nav-toggle
+6. Part 1: Remove the display none. Add a transition to ease in and out in 400ms or faster. Then Set the transformation to 1 so the entire navbar shows. Set the transform origin so that the navbar is transitioning from the top of the area.
+*/
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+1. Part 5: Set margin 0, padding 0, list style to none so there are no bullets
+*/
+
+.navbar li {
+  margin-bottom: 1rem;
+}
+
+/*
+1. Part 6: Set margin bottom to give a bit of space
+*/
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+/*
+1. Part 7: Set the color, text dec to none so the underline is gone, set the font size, and text-transform uppercase looks nice
+6. Part 3: Set opacity to 0
+*/
+
+.navbar a:hover {
+  color: white;
+}
+
+.nav-toggle:checked~nav {
+  transform: scale(1);
+}
+
+/*
+2. Part 2: Created a .nav-toggle: checled. Checked is a psuedo selector. The ~ looks for the preceeding sibling after the "nav-toggle". In this case we are looking for a nav, after the nav-toggle. If there is one, then it will have a block display
+6. Part 2: Take out the display none and set it to transform: scale(1). This will ensure that the navbar transforms into its full size when clicked
+*/
+
+.nav-toggle {
+  display: none;
+}
+
+/* 3. Part 1: Set the display to non so that only the X remainds. The X will have the same effect. If the X disappers after you click it and only the menu items show, that happend to me as well. But it works out when I moved the X in the next step*/
+
+.toggle-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/*
+4. Part 1: Right after setting the display for the checkbox to none, now move the check box so that it is in the right hand conrer of the header. Try the X again and this time it will stay even after the click. I may have needed to add a margin between the label and the navbar, but this still gets me to the same point so it's fine.
+*/
+
+.toggle-label span,
+.toggle-label span::before,
+.toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2rem;
+  position: relative;
+}
+
+/*
+5. Part 1: This is the creation of the first line of the hamburger menu icon, the before and after are used for the top and bottom lines
+*/
+
+.toggle-label span::before {
+  bottom: .4rem;
+  content: '';
+  position: absolute;
+}
+
+/*
+5. Part 2: After styling the the span, before, after together. Now style the before and after. Set the before to a bottom of .4rem. This moves the line .4rem away from the bottom of the first span. Creating the top of the hamburger
+*/
+
+.toggle-label span::after {
+  top: .4rem;
+  content: '';
+  position: absolute;
+}
+
+/*
+5. Part 3: After styling the the span, before, after together. Now style the after. Set the after to a top of .4rem. This moves the line .4rem away from the top of the first span. Creating the bottom of the hamburger.
+*/
+
+.nav-toggle:checked~nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+
+}
+
+/*
+6.Part 4: set the opacity to 1 so the links show up on checked state. Add a transition so that when the nav bar is transitioning from the top, the opacity is transitining as well from not being shown, to showing.
+*/
+
+@media screen and (min-width: 768px) {
+  .brand--sm-view {
+    display: inline;
+  }
+
+  .brand--lg-view {
+    display: none;
+  }
+
+  .toggle-label {
+    display: none;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  .navbar {
+    all: unset;
+    color: white;
+    display: flex;
+
+  }
+
+  .navbar a {
+    opacity: 1;
+  }
+
+  .navbar ul {
+    display: flex;
+  }
+
+  .navbar ul li {
+    margin: 2rem;
+  }
+}
+
+/*Part 7: The Desktop or laptop or tablet mode version. Set the media query and then remove some of the past properties by using unset on the nav bar. Set the header to flex and change the spacing.*/

@@ -1,6 +1,6 @@
 <template>
   <div class="filters__container">
-    <div class="filters">
+    <div class="filter__inputs">
       <section class="tags-filter">
         <auto-complete
           for-id="tags"
@@ -116,7 +116,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.filters {
+.filter__inputs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -131,8 +131,25 @@ onMounted(() => {
 }
 
 .apply-filters {
-  width: 100%;
   text-align: center;
   padding: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .filter__inputs {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .apply-filters {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .apply-filters button {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 16px;
+  }
 }
 </style>

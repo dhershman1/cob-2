@@ -9,6 +9,7 @@
   },
   "cob": "Captain of Blueprints",
   "cob-about": "Cob (Captain of Blueprints) is a simple app built for blueprint storage, it's purpose is both an interactive archive, as well as a place for the community to find and use blueprints within the game",
+  "cob-ac": "Cob",
   "filters": {
     "by-author": "Filter by Author",
     "by-blueprint": "Filter by Blueprint",

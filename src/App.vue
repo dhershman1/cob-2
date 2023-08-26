@@ -1,28 +1,92 @@
+<!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
   <div class="container">
-    <header class="navbar">
-      <div class="brand">
-        <router-link to="/">
-          {{ $t('cob') }}
-        </router-link>
+    <header>
+      <div class="navbar__full">
+        <div class="brand">
+          <router-link
+            class="brand brand--lg-view"
+            to="/"
+          >
+            {{ $t('cob') }}
+          </router-link>
+          <router-link
+            class="brand brand--sm-view"
+            to="/"
+          >
+            {{ $t('cob-ac') }}
+          </router-link>
+        </div>
+        <nav class="navbar">
+          <ul class="navbar__links">
+            <li>
+              <router-link to="/">
+                {{ $t('nav.home') }}
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/blueprints">
+                {{ $t('nav.blueprints') }}
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/about">
+                {{ $t('nav.about') }}
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/upload">
+                {{ $t('nav.upload') }}
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/profile">
+                {{ $t('nav.profile') }}
+              </router-link>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="navbar__links">
-        <router-link to="/">
-          {{ $t('nav.home') }}
-        </router-link>
-        <router-link to="/blueprints">
-          {{ $t('nav.blueprints') }}
-        </router-link>
-        <router-link to="/about">
-          {{ $t('nav.about') }}
-        </router-link>
-        <router-link to="/upload">
-          {{ $t('nav.upload') }}
-        </router-link>
-        <router-link to="/profile">
-          {{ $t('nav.profile') }}
-        </router-link>
-      </div>
+      <input
+        id="nav-toggle"
+        type="checkbox"
+        class="nav-toggle"
+      >
+      <label
+        for="nav-toggle"
+        class="toggle-label"
+      >
+        <span />
+      </label>
+      <nav class="navbar__mobile">
+        <ul>
+          <li>
+            <router-link to="/">
+              {{ $t('nav.home') }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/blueprints">
+              {{ $t('nav.blueprints') }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/about">
+              {{ $t('nav.about') }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/upload">
+              {{ $t('nav.upload') }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/profile">
+              {{ $t('nav.profile') }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
       <router-view />
