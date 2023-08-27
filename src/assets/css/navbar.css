@@ -6,7 +6,6 @@ header {
   background-color: var(--jet);
   opacity: .8;
   align-content: center;
-  justify-content: center;
 }
 
 header .brand {
@@ -24,17 +23,21 @@ header .brand a {
   display: none;
 }
 
+.navbar__full {
+  width: 100%;
+  display: flex;
+}
+
 .navbar {
   width: 70%;
   text-align: center;
   transition: transform 400ms ease-in-out;
-  /* transform: scale(1, 0);
-  transform-origin: top; */
 }
 
 .navbar__mobile {
   width: 70%;
   text-align: center;
+  position: absolute;
   transition: transform 400ms ease-in-out;
   transform: scale(1, 0);
   transform-origin: top;
@@ -166,18 +169,26 @@ header .brand a {
 
   .navbar__mobile {
     display: flex;
-    width: auto;
-  }
-
-  .navbar__links a {
-    opacity: 1;
+    width: 100%;
+    justify-content: center;
+    margin-top: 6rem;
   }
 
   .navbar__mobile ul {
     display: flex;
+    background-color: var(--jet);
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
   }
 
   .navbar__mobile ul li {
-    margin: 2rem;
+    font-size: 20px;
+    padding: 0.5rem;
+  }
+
+  .navbar__links a,
+  header {
+    opacity: 1;
   }
 }

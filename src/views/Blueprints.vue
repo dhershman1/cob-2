@@ -1,9 +1,8 @@
 <template>
   <div class="blueprints">
-    <account-card class="account" />
     <div class="filters">
       <basic-card
-        subtitle="Fitler down your blueprint results"
+        subtitle="Fitler down your blueprints and sort the results"
         :title="'Search'"
       >
         <template #content>
@@ -45,7 +44,6 @@
 </template>
 
 <script setup>
-import AccountCard from '../components/cards/Account.vue'
 import BasicCard from '../components/cards/Basic.vue'
 import Filters from '../components/Filters.vue'
 import Pagination from '../components/Pagination.vue'

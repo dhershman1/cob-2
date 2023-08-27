@@ -55,11 +55,10 @@ main {
 
 .blueprints {
   display: grid;
-  grid-template-areas: 'aside filters'
-                       'previews previews'
-                       'pagination pagination';
+  grid-template-areas: 'filters previews'
+                       'filters pagination';
   column-gap: 1rem;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 15% 85%;
 }
 
 /* Links */
