@@ -1,8 +1,9 @@
 {
   "apply": "Apply",
+  "ascending": "Ascending",
   "blueprint-info": {
     "author": "Author",
-    "date-created": "Date Created",
+    "date-created": "Date Added",
     "date-updated": "Date Updated",
     "favorites": "Favorites",
     "version": "Version"
@@ -10,14 +11,18 @@
   "cob": "Captain of Blueprints",
   "cob-about": "Cob (Captain of Blueprints) is a simple app built for blueprint storage, it's purpose is both an interactive archive, as well as a place for the community to find and use blueprints within the game",
   "cob-ac": "Cob",
+  "descending": "Descending",
   "filters": {
     "by-author": "Filter by Author",
     "by-blueprint": "Filter by Blueprint",
-    "by-tag": "Filter by Tag"
+    "by-tag": "Filter by Tag",
+    "by-added": "Filter by Date Added",
+    "by-updated": "Filter by Date Updated"
   },
   "info": "Info",
   "made-with": "Made with ❤️ by {0} \u00A9 2023",
   "my-name": "Dustin Hershman",
+  "name": "Name",
   "nav": {
     "home": "Home",
     "blueprints": "Blueprints",

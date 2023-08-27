@@ -12,6 +12,7 @@ import './assets/css/inputs.css'
 import './assets/css/button.css'
 import './assets/css/tabs.css'
 import './assets/css/autocomplete.css'
+import './assets/css/filters.css'
 import './assets/icofont.min.css'
 
 const pinia = createPinia()

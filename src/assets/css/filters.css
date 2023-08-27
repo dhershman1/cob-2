@@ -1,0 +1,32 @@
+.filter__inputs {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.filters__container {
+  display: grid;
+  grid-auto-rows: auto;
+}
+
+.apply-filters {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .filter__inputs {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .apply-filters {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .apply-filters button {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 16px;
+  }
+}
