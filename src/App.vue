@@ -6,24 +6,19 @@
         <div class="brand">
           <router-link
             class="brand brand--lg-view"
-            to="/"
+            to="/blueprints"
           >
             {{ $t('cob') }}
           </router-link>
           <router-link
             class="brand brand--sm-view"
-            to="/"
+            to="/blueprints"
           >
             {{ $t('cob-ac') }}
           </router-link>
         </div>
         <nav class="navbar">
           <ul class="navbar__links">
-            <li>
-              <router-link to="/">
-                {{ $t('nav.home') }}
-              </router-link>
-            </li>
             <li>
               <router-link to="/blueprints">
                 {{ $t('nav.blueprints') }}
@@ -60,11 +55,6 @@
       </label>
       <nav class="navbar__mobile">
         <ul>
-          <li>
-            <router-link to="/">
-              {{ $t('nav.home') }}
-            </router-link>
-          </li>
           <li>
             <router-link to="/blueprints">
               {{ $t('nav.blueprints') }}

@@ -1,8 +1,12 @@
 <template>
-  <div class="about">
+  <div class="home">
+    <basic-card title="News">
+      <template #content>
+        <p>News</p>
+      </template>
+    </basic-card>
     <basic-card title="About Cob">
       <template #content>
-        <h2>{{ $t('what-is-cob') }}</h2>
         <p>{{ $t('cob-about') }}</p>
       </template>
     </basic-card>
@@ -12,3 +16,24 @@
 <script setup>
 import BasicCard from '../components/cards/Basic.vue'
 </script>
+
+<style scoped>
+.card:first {
+  margin-top: inherit;
+}
+
+.card {
+  margin-top: 1rem;
+}
+
+.previews {
+  grid-area: previews;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.news {
+  grid-area: news;
+}
+</style>
