@@ -14,8 +14,7 @@
       <div>
         <preview-card>
           <template #preview-content>
-            <h1>Tavern Build LORUM IPSUM EXTRA TEXT OMG</h1>
-            <h2>It's a Tavern! Whoa!</h2>
+            <h1>Tavern Build</h1>
             <p>Something something, booze and unlimited power!</p>
           </template>
         </preview-card>
@@ -24,7 +23,6 @@
         <preview-card>
           <template #preview-content>
             <h1>Tavern Build</h1>
-            <h2>It's a Tavern! Whoa!</h2>
             <p>Something something, booze and unlimited power!</p>
           </template>
         </preview-card>
@@ -33,7 +31,6 @@
         <preview-card>
           <template #preview-content>
             <h1>Tavern Build</h1>
-            <h2>It's a Tavern! Whoa!</h2>
             <p>Something something, booze and unlimited power!</p>
           </template>
         </preview-card>
