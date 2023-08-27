@@ -1,65 +1,53 @@
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <template>
   <div class="wrap">
-    <basic-card size="sm">
-      <template #content>
-        <div class="login">
-          <section class="login__switch">
-            <p
-              :class="formStatus.signin"
-              @click="isSignup = false"
+    <basic-card
+      size="sm"
+      title="Login/Register"
+      subtitle="Login or create a Cob account"
+      :separator="true"
+    >
+      <template
+        #content
+      >
+        <form>
+          <div class="input__container">
+            <i class="icofont-worker input__icon" />
+            <input
+              v-model="username"
+              class="input__field control"
+              title="Username"
+              type="text"
+              placeholder="Username"
+              name="username"
             >
-              Sign In
-            </p>
-            <p
-              :class="formStatus.signup"
-              @click="isSignup = true"
+          </div>
+          <div class="input__container">
+            <i class="icofont-lock input__icon" />
+            <input
+              v-model="password"
+              class="input__field control"
+              title="Password"
+              type="password"
+              placeholder="Password"
+              name="password"
             >
-              Sign Up
-            </p>
-          </section>
-          <section class="login__form">
-            <form>
-              <input
-                v-model="username"
-                type="text"
-                class="login__input"
-                name="login"
-                placeholder="Email"
-              >
-              <transition
-                name="slide-fade"
-                mode="out-in"
-              >
-                <input
-                  v-show="isSignup"
-                  v-model="displayName"
-                  type="text"
-                  class="login__input"
-                  name="displayName"
-                  placeholder="Display Name"
-                >
-              </transition>
-              <input
-                v-model="password"
-                type="text"
-                class="login__input"
-                name="login"
-                placeholder="Password"
-              >
-              <input
-                type="submit"
-                class="login__btn"
-                :value="submitTxt"
-              >
-            </form>
-          </section>
-          <section class="login__foot">
-            <a
-              class="underlineHover"
-              href="#"
-            >Forgot Password?</a>
-          </section>
-        </div>
+          </div>
+          <div class="btn__container">
+            <button
+              class="btn btn__primary"
+              type="button"
+            >
+              Login
+            </button>
+            <button
+              class="btn btn__primary"
+              type="button"
+            >
+              Register
+            </button>
+          </div>
+        </form>
       </template>
     </basic-card>
   </div>
@@ -80,7 +68,7 @@ const submitTxt = computed(() => {
     return 'Register'
   }
 
-  return 'Log In'
+  return 'LogIn'
 })
 
 const formStatus = computed(() => {
@@ -100,23 +88,36 @@ const formStatus = computed(() => {
 
 <style scoped>
 .wrap {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.slide-fade-enter-active {
-  transition: all 0.1s ease-out;
+.btn__container {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+  padding-bottom: 1rem;
 }
 
-.slide-fade-leave-active {
-  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+.input__container {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  justify-content: center;
 }
 
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+.input__field {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0.3rem;
+}
+
+.input__icon {
+  padding: 0.36rem;
+  background: var(--dark-grey);
+  color: var(--white);
+  text-align: center;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 </style>
