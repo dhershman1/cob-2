@@ -100,6 +100,7 @@
           <p>{{ $t('filters.by-updated') }}</p>
           <select
             name="sortBy"
+            :value="store.getSortKey()"
             @change="setSorting"
           >
             <option :value="null" />
