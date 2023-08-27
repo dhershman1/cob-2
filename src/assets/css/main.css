@@ -2,11 +2,11 @@
   --white: hsl(0, 0%, 100%);
   --jet: hsl(120, 1%, 17%);
   --latte: hsl(49, 60%, 93%);
-  --nickle: hsl(44, 5%, 59%);
+  --nickle: hsl(37, 5%, 66%);
   --lightgrey: hsl(60, 3%, 93%);
   --shadow: hsla(0, 0%, 0%, 0.13);
   --btn-shadow: hsla(0, 0%, 0%, 0.02);
-  --peach-shadow: hsla(5, 100%, 76%, 0.1);
+  --peach-shadow: hsla(5, 100%, 76%, 0.164);
   --peach: hsl(5, 100%, 76%);
   --peach-lighten: hsl(5, 100%, 90%);
   --teal: hsl(168, 69%, 84%);
@@ -71,8 +71,8 @@ a.link {
 }
 
 a.link:hover {
-  background-color: var(--nickle);
-  color: var(--peach-lighten);
+  background-color: var(--grey);
+  text-shadow: 1px 1px 2px var(--peach-shadow);
 }
 
 /* Media Tags */
