@@ -5,7 +5,6 @@ header {
   flex-wrap: nowrap;
   background-color: var(--jet);
   opacity: .8;
-  align-content: center;
 }
 
 header .brand {
@@ -29,9 +28,12 @@ header .brand a {
 }
 
 .navbar {
-  width: 70%;
   text-align: center;
   transition: transform 400ms ease-in-out;
+}
+
+.navbar__full .navbar {
+  width: 100%;
 }
 
 .navbar__mobile {
@@ -54,13 +56,14 @@ header .brand a {
   padding: 0;
 }
 
+.navbar ul {
+  justify-content: flex-end;
+}
+
 .navbar__links {
   display: flex;
   font-size: 20px;
   height: 100%;
-  width: 100%;
-  text-align: center;
-  align-content: center;
 }
 
 .navbar__mobile a {
@@ -73,7 +76,6 @@ header .brand a {
 }
 
 .navbar__links li {
-  width: 20%;
   display: flex;
   align-content: center;
 }
