@@ -10,7 +10,6 @@
     "test:unit": "jest"
   },
   "dependencies": {
-    "@auth0/auth0-vue": "^2.3.1",
     "dompurify": "^3.0.5",
     "kyanite": "^2.0.1",
     "marked": "^7.0.4",
