@@ -67,8 +67,9 @@ import PreviewCard from '../components/cards/Preview.vue'
 /* Media Tags */
 @media only screen and (max-width: 768px) {
   .previews {
-    grid-template-columns: 0fr;
+    grid-template-columns: 1fr;
     column-gap: 0;
+    row-gap: 0.5rem;
   }
 }
 </style>
