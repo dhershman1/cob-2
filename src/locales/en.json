@@ -28,7 +28,8 @@
     "blueprints": "Blueprints",
     "about": "About",
     "upload": "Upload",
-    "profile": "Profile"
+    "profile": "Profile",
+    "login": "Log In"
   },
   "pagination": {
     "first-page": "First Page",

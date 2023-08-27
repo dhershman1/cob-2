@@ -29,14 +29,19 @@
                 {{ $t('nav.about') }}
               </router-link>
             </li>
-            <li>
+            <li v-if="store.isAuthed">
               <router-link to="/upload">
                 {{ $t('nav.upload') }}
               </router-link>
             </li>
-            <li>
+            <li v-if="store.isAuthed">
               <router-link to="/profile">
                 {{ $t('nav.profile') }}
+              </router-link>
+            </li>
+            <li v-else>
+              <router-link to="/login">
+                {{ $t('nav.login') }}
               </router-link>
             </li>
           </ul>
@@ -65,14 +70,19 @@
               {{ $t('nav.about') }}
             </router-link>
           </li>
-          <li>
+          <li v-if="store.isAuthed">
             <router-link to="/upload">
               {{ $t('nav.upload') }}
             </router-link>
           </li>
-          <li>
+          <li v-if="store.isAuthed">
             <router-link to="/profile">
               {{ $t('nav.profile') }}
+            </router-link>
+          </li>
+          <li v-else>
+            <router-link to="/login">
+              {{ $t('nav.login') }}
             </router-link>
           </li>
         </ul>
@@ -95,3 +105,10 @@
     </footer>
   </div>
 </template>
+
+<script setup>
+import { useAuthStore } from './stores/auth'
+
+const store = useAuthStore()
+console.log(store.isAuthed)
+</script>
