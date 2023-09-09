@@ -20,6 +20,8 @@
     "by-updated": "Filter by Date Updated"
   },
   "info": "Info",
+  "login": "Login",
+
   "made-with": "Made with ❤️ by {0} \u00A9 2023",
   "my-name": "Dustin Hershman",
   "name": "Name",
@@ -38,6 +40,7 @@
     "prev": "Previous"
   },
   "preview": "Preview",
+  "register": "Register",
   "tags": "Tags",
   "visit": "Visit",
   "x": "x",
