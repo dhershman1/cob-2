@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useAuthStore = defineStore('auth', () => {
-  const isAuthed = ref(false)
+  // FIXME: Make sure to set this back to false after dev
+  const isAuthed = ref(true)
   const cred = ref('')
   const profile = ref({})
   const account = ref({
