@@ -30,6 +30,10 @@ const props = defineProps({
     type: String,
     default: null
   },
+  lgTitle: {
+    type: Boolean,
+    default: false
+  },
   separator: {
     type: Boolean,
     default: false
@@ -46,16 +50,34 @@ const cardClass = computed(() => {
   return `card card--${props.size}`
 })
 const titleClass = computed(() => {
+  let classes = 'card__title'
+
   if (props.separator) {
-    return 'card__title separator'
+    classes += ' separator'
   }
 
-  return 'card__title'
+  if (props.lgTitle) {
+    classes += ' card__title--lg'
+  }
+
+  return classes
 })
 </script>
 
 <style scoped>
 .separator {
   border-bottom: 1px solid var(--grey);
+}
+
+.separator p {
+  padding-bottom: 0.5rem;
+}
+
+.card__title.card__title--lg {
+  font-size: 30px;
+}
+
+.separator ~ .card__subtitle {
+  padding-top: 0.5rem;
 }
 </style>
