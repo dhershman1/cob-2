@@ -37,14 +37,16 @@
             <button
               class="btn btn__primary"
               type="button"
+              @click="auth.loginUser(username, password)"
             >
-              Login
+              {{ $t('login') }}
             </button>
             <button
               class="btn btn__primary"
               type="button"
+              @click="auth.registerUser(username, password)"
             >
-              Register
+              {{ $t('register') }}
             </button>
           </div>
         </form>
@@ -54,36 +56,13 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import BasicCard from '../components/cards/Basic.vue'
+import { useAuthStore } from '../stores/auth.js'
 
-const isSignup = ref(false)
+const auth = useAuthStore()
 const username = ref('')
 const password = ref('')
-const displayName = ref('')
-const remember = ref(false)
-
-const submitTxt = computed(() => {
-  if (isSignup.value) {
-    return 'Register'
-  }
-
-  return 'LogIn'
-})
-
-const formStatus = computed(() => {
-  if (isSignup.value) {
-    return {
-      signup: 'active',
-      signin: 'inactive'
-    }
-  }
-
-  return {
-    signup: 'inactive',
-    signin: 'active'
-  }
-})
 </script>
 
 <style scoped>
