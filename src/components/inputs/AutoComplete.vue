@@ -73,12 +73,7 @@ const listToSearch = computed(() => {
   if (typeof props.items !== 'undefined' && props.items.length > 0) {
     return props.items
   } else {
-    return [
-      'cool',
-      'beans',
-      'bonks',
-      'yolo'
-    ]
+    return []
   }
 })
 const filteredList = computed(() => {

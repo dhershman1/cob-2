@@ -5,7 +5,7 @@
         <auto-complete
           for-id="tags"
           placeholder="Add Tag"
-          :items="listedTags"
+          :items="store.allTags"
           :current-words="store.filters.tags"
           @select-item="store.addTag"
         />
@@ -154,7 +154,6 @@ import { useFilterStore } from '../stores/filters'
 const route = useRoute()
 const router = useRouter()
 const store = useFilterStore()
-const listedTags = ['foo', 'food', 'bar', 'yolo', 'cool', 'beans', 'football']
 
 function applyFilters () {
   router.replace({

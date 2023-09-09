@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useFilterStore = defineStore('filters', () => {
+  const allTags = ref([])
   // State
   const filters = ref({
     author: '',
@@ -102,8 +103,14 @@ export const useFilterStore = defineStore('filters', () => {
   }
   // Actions
 
+  async function fetchTags () {
+    // TODO: Make request to backend to get a list of all tags
+    allTags.value = ['foo', 'food', 'bar', 'yolo', 'cool', 'beans', 'football']
+  }
+
   return {
     // State
+    allTags,
     filters,
     sorting,
     // Mutations
@@ -117,7 +124,8 @@ export const useFilterStore = defineStore('filters', () => {
     setSort,
     // Getters
     getSortKey,
-    getTagsValue
+    getTagsValue,
     // Actions
+    fetchTags
   }
 })
