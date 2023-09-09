@@ -107,8 +107,14 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { useAuthStore } from './stores/auth'
+import { useFilterStore } from './stores/filters'
 
 const store = useAuthStore()
-console.log(store.isAuthed)
+const filterStore = useFilterStore()
+
+onMounted(async () => {
+  await filterStore.fetchTags()
+})
 </script>
