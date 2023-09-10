@@ -142,7 +142,7 @@ fieldset {
 }
 
 .control {
-  padding: 0;
+  padding: 0.3rem 0;
   width: 100%;
 }
 
