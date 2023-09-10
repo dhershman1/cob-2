@@ -71,13 +71,6 @@ const password = ref('')
   justify-content: center;
 }
 
-.btn__container {
-  display: flex;
-  justify-content: center;
-  column-gap: 1rem;
-  padding-bottom: 1rem;
-}
-
 .input__container {
   display: flex;
   width: 100%;
