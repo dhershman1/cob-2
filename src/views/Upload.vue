@@ -137,7 +137,7 @@ function onCancel () {
 }
 
 fieldset {
-  width: 90%;
+  width: 100%;
   border: none;
 }
 
