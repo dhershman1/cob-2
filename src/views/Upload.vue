@@ -38,11 +38,56 @@
                 rows="10"
               />
             </label>
-            <div class="marked-preview">
+            <button
+              type="button"
+              class="btn btn__primary"
+              @click="showDescPreview = !showDescPreview"
+            >
+              Preview
+            </button>
+            <div
+              v-if="showDescPreview"
+              class="marked-preview"
+            >
               <p>{{ `${$t('bp-form.labels.description')} ${$t('preview')}` }}</p>
               <parsed-content
                 class="desc__preview"
                 :content="description"
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <label for="changelog">
+              <p>{{ $t('bp-form.labels.changelog') }}</p>
+              <p class="subtext">Supports <a
+                class="link"
+                href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"
+                target="_blank"
+              >markdown</a> syntax</p>
+              <textarea
+                id="changelog"
+                v-model="changelog"
+                class="input__field control"
+                name="changelog"
+                type="text"
+                rows="10"
+              />
+            </label>
+            <button
+              type="button"
+              class="btn btn__primary"
+              @click="showchangelogPreview = !showchangelogPreview"
+            >
+              Preview
+            </button>
+            <div
+              v-if="showchangelogPreview"
+              class="marked-preview"
+            >
+              <p>{{ `${$t('bp-form.labels.changelog')} ${$t('preview')}` }}</p>
+              <parsed-content
+                class="desc__preview"
+                :content="changelog"
               />
             </div>
           </fieldset>
@@ -110,9 +155,12 @@ import ParsedContent from '../components/cards/ParsedContent.vue'
 const router = useRouter()
 const title = ref('')
 const description = ref('')
+const changelog = ref('')
 const bpStr = ref('')
 const bpPhoto = ref('')
 const imgURL = ref('')
+const showDescPreview = ref(false)
+const showchangelogPreview = ref(false)
 
 function onFileChange (e) {
   const file = e.target.files[0]
@@ -139,6 +187,10 @@ function onCancel () {
 fieldset {
   width: 100%;
   border: none;
+}
+
+fieldset button {
+  margin-top: 1rem;
 }
 
 .control {
