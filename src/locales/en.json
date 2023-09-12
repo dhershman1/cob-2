@@ -6,14 +6,16 @@
     "date-created": "Date Added",
     "date-updated": "Date Updated",
     "favorites": "Favorites",
+    "game-version": "COI Version",
     "version": "Version"
   },
   "bp-form": {
     "labels": {
-      "title": "Title",
-      "description": "Description",
       "bp-str": "Blueprint String",
+      "changelog": "Changelog",
+      "description": "Description",
       "tags": "Tags",
+      "title": "Title",
       "upload-screenie": "Upload Sceenshot"
     }
   },

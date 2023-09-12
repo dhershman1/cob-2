@@ -15,7 +15,8 @@ export const useBlueprintStore = defineStore('blueprint', () => {
       version: ''
     },
     details: '',
-    changelog: ''
+    changelog: '',
+    extras: {}
   })
 
   // Mutations
@@ -39,7 +40,8 @@ export const useBlueprintStore = defineStore('blueprint', () => {
         version: '1.1.4'
       },
       details: '# Details',
-      changelog: '# Changelog'
+      changelog: '# Changelog',
+      extras: {}
     })
   }
 
