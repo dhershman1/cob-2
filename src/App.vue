@@ -24,6 +24,16 @@
                 {{ $t('nav.blueprints') }}
               </router-link>
             </li>
+            <li v-if="store.isAuthed">
+              <router-link to="/favorites">
+                {{ $t('nav.favorites') }}
+              </router-link>
+            </li>
+            <li v-if="store.isAuthed">
+              <router-link to="/blueprints/abc123">
+                {{ $t('nav.my-bp') }}
+              </router-link>
+            </li>
             <li>
               <router-link to="/about">
                 {{ $t('nav.about') }}
@@ -35,8 +45,8 @@
               </router-link>
             </li>
             <li v-if="store.isAuthed">
-              <router-link to="/profile">
-                {{ $t('nav.profile') }}
+              <router-link to="/logout">
+                {{ $t('nav.logout') }}
               </router-link>
             </li>
             <li v-else>
@@ -66,6 +76,16 @@
             </router-link>
           </li>
           <li>
+            <router-link to="/favorites">
+              {{ $t('nav.favorites') }}
+            </router-link>
+          </li>
+          <li v-if="store.isAuthed">
+            <router-link to="/blueprints">
+              {{ $t('nav.my-bp') }}
+            </router-link>
+          </li>
+          <li>
             <router-link to="/about">
               {{ $t('nav.about') }}
             </router-link>
@@ -76,8 +96,8 @@
             </router-link>
           </li>
           <li v-if="store.isAuthed">
-            <router-link to="/profile">
-              {{ $t('nav.profile') }}
+            <router-link to="/logout">
+              {{ $t('nav.logout') }}
             </router-link>
           </li>
           <li v-else>

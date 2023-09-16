@@ -6,6 +6,7 @@ import Upload from './views/Upload.vue'
 import Profile from './views/Profile.vue'
 import Login from './views/Login.vue'
 import Blueprint from './views/Blueprint.vue'
+import Favorites from './views/Favorites.vue'
 
 const routes = [{
   path: '/',
@@ -15,7 +16,7 @@ const routes = [{
   name: 'about',
   component: About
 }, {
-  path: '/blueprints',
+  path: '/blueprints/:id?',
   name: 'blueprints',
   component: Blueprints
 }, {
@@ -34,6 +35,10 @@ const routes = [{
   path: '/blueprint/:id',
   name: 'blueprint',
   component: Blueprint
+}, {
+  path: '/favorites',
+  name: 'favorites',
+  component: Favorites
 }
 ]
 
