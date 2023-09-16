@@ -10,7 +10,8 @@ export const useFilterStore = defineStore('filters', () => {
     dateCreated: '',
     dateUpdated: '',
     name: '',
-    tags: []
+    tags: [],
+    favorites: false
   })
   const sorting = ref({
     by: '',
@@ -69,7 +70,8 @@ export const useFilterStore = defineStore('filters', () => {
       dateCreated: '',
       dateUpdated: '',
       name: '',
-      tags: []
+      tags: [],
+      favorites: false
     }
   }
 
