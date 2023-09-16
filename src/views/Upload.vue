@@ -8,98 +8,51 @@
       lg-title
     >
       <template #content>
-        <form class="bp__form">
+        <form
+          class="bp__form"
+          @change="hasChanges = true"
+          @submit.prevent="sendForm"
+        >
           <fieldset>
             <label for="title">
-              <p>{{ $t('bp-form.labels.title') }}</p>
+              <p>{{ $t('bp-form.labels.title') }} <span class="required">*</span></p>
               <input
                 id="title"
                 v-model="title"
                 class="input__field control"
                 name="title"
                 type="text"
+                required
               >
             </label>
           </fieldset>
           <fieldset>
-            <label for="description">
-              <p>{{ $t('bp-form.labels.description') }}</p>
-              <p class="subtext">Supports <a
-                class="link"
-                href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"
-                target="_blank"
-              >markdown</a> syntax</p>
-              <textarea
-                id="description"
-                v-model="description"
-                class="input__field control"
-                name="description"
-                type="text"
-                rows="10"
-              />
-            </label>
-            <button
-              type="button"
-              class="btn btn__primary"
-              @click="showDescPreview = !showDescPreview"
-            >
-              Preview
-            </button>
-            <div
-              v-if="showDescPreview"
-              class="marked-preview"
-            >
-              <p>{{ `${$t('bp-form.labels.description')} ${$t('preview')}` }}</p>
-              <parsed-content
-                class="desc__preview"
-                :content="description"
-              />
-            </div>
+            <text-with-preview
+              id="description"
+              v-model="description"
+              :label="$t('bp-form.labels.description')"
+              :text-limit="2000"
+              required
+            />
           </fieldset>
           <fieldset>
-            <label for="changelog">
-              <p>{{ $t('bp-form.labels.changelog') }}</p>
-              <p class="subtext">Supports <a
-                class="link"
-                href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"
-                target="_blank"
-              >markdown</a> syntax</p>
-              <textarea
-                id="changelog"
-                v-model="changelog"
-                class="input__field control"
-                name="changelog"
-                type="text"
-                rows="10"
-              />
-            </label>
-            <button
-              type="button"
-              class="btn btn__primary"
-              @click="showchangelogPreview = !showchangelogPreview"
-            >
-              Preview
-            </button>
-            <div
-              v-if="showchangelogPreview"
-              class="marked-preview"
-            >
-              <p>{{ `${$t('bp-form.labels.changelog')} ${$t('preview')}` }}</p>
-              <parsed-content
-                class="desc__preview"
-                :content="changelog"
-              />
-            </div>
+            <text-with-preview
+              id="changelog"
+              v-model="changelog"
+              :label="$t('bp-form.labels.changelog')"
+              :text-limit="2000"
+            />
           </fieldset>
           <fieldset>
             <label for="bp-str">
-              <p>{{ $t('bp-form.labels.bp-str') }}</p>
+              <p>{{ $t('bp-form.labels.bp-str') }} <span class="required">*</span></p>
               <textarea
                 id="bp-str"
                 v-model="bpStr"
                 class="input__field control"
                 name="bp-str"
                 type="text"
+                required
               />
             </label>
           </fieldset>
@@ -126,7 +79,7 @@
           <div class="btn__container">
             <button
               class="btn btn__primary btn--lg"
-              type="button"
+              type="submit"
             >
               <i class="icofont-diskette" />
               {{ $t('save') }}
@@ -148,10 +101,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, onBeforeRouteLeave } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import BasicCard from '../components/cards/Basic.vue'
-import ParsedContent from '../components/cards/ParsedContent.vue'
+import TextWithPreview from '../components/inputs/TextWithPreview.vue'
 
+const { t } = useI18n()
 const router = useRouter()
 const title = ref('')
 const description = ref('')
@@ -159,8 +114,7 @@ const changelog = ref('')
 const bpStr = ref('')
 const bpPhoto = ref('')
 const imgURL = ref('')
-const showDescPreview = ref(false)
-const showchangelogPreview = ref(false)
+const hasChanges = ref(false)
 
 function onFileChange (e) {
   const file = e.target.files[0]
@@ -174,18 +128,31 @@ function onCancel () {
     name: 'blueprints'
   })
 }
+
+function sendForm () {
+  console.log('form sent')
+}
+
+onBeforeRouteLeave(() => {
+  if (!hasChanges.value) {
+    return true
+  }
+
+  const answer = window.confirm(t('confirm'))
+
+  if (!answer) {
+    return false
+  }
+})
 </script>
 
 <style scoped>
 .bp__form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 fieldset {
-  width: 100%;
   border: none;
 }
 
@@ -194,18 +161,8 @@ fieldset button {
 }
 
 .control {
-  padding: 0.3rem 0;
+  padding: 0.3rem 0.3rem;
   width: 100%;
-}
-
-.marked-preview {
-  height: 200px;
-  margin-bottom: 2rem;
-}
-
-.desc__preview {
-  overflow: auto;
-  height: 100%;
 }
 
 .upload {
@@ -224,7 +181,7 @@ fieldset button {
 }
 
 .control__file {
-  padding: 1.5rem 0;
+  padding: 1.5rem 0.3rem;
   border-width: 2px;
 }
 
