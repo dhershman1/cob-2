@@ -42,12 +42,15 @@
   "my-name": "Dustin Hershman",
   "name": "Name",
   "nav": {
-    "home": "Home",
-    "blueprints": "Blueprints",
     "about": "About",
-    "upload": "Upload",
+    "blueprints": "Blueprints",
+    "favorites": "Favorites",
+    "home": "Home",
+    "login": "Log In",
+    "logout": "Logout",
+    "my-bp": "My Blueprints",
     "profile": "Profile",
-    "login": "Log In"
+    "upload": "Upload"
   },
   "new-bp": "Upload a New Blueprint",
   "pagination": {
