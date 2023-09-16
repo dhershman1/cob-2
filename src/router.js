@@ -23,7 +23,7 @@ const routes = [{
   name: 'upload',
   component: Upload
 }, {
-  path: '/profile',
+  path: '/profile/:id?',
   name: 'profile',
   component: Profile
 }, {
