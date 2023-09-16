@@ -19,10 +19,9 @@
   font-size: 18px;
   outline: none;
   transition: all 0.3s;
-  padding: 0 0.75rem 0;
+  padding: 0 1rem 0 0;
   background: transparent;
   cursor: pointer;
-  margin: 0 0 0 1rem;
 }
 
 .tabs .tab__buttons .tab--active {
