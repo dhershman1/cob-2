@@ -25,11 +25,6 @@
               </router-link>
             </li>
             <li v-if="store.isAuthed">
-              <router-link to="/favorites">
-                {{ $t('nav.favorites') }}
-              </router-link>
-            </li>
-            <li v-if="store.isAuthed">
               <router-link to="/blueprints/abc123">
                 {{ $t('nav.my-bp') }}
               </router-link>
@@ -73,11 +68,6 @@
           <li>
             <router-link to="/blueprints">
               {{ $t('nav.blueprints') }}
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/favorites">
-              {{ $t('nav.favorites') }}
             </router-link>
           </li>
           <li v-if="store.isAuthed">

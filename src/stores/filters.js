@@ -1,4 +1,4 @@
-import { reject } from 'kyanite'
+import { reject, withDefaults } from 'kyanite'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -7,8 +7,6 @@ export const useFilterStore = defineStore('filters', () => {
   // State
   const filters = ref({
     author: '',
-    dateCreated: '',
-    dateUpdated: '',
     name: '',
     tags: [],
     favorites: false
@@ -43,7 +41,7 @@ export const useFilterStore = defineStore('filters', () => {
         filters.value.name = value
       } else if (key === 'sortBy') {
         setSort(value)
-      } else if (key === 'tags') {
+      } else if (key === 'tags' && value) {
         filters.value.tags = value.split('|')
       } else {
         filters.value[key] = value
@@ -51,17 +49,11 @@ export const useFilterStore = defineStore('filters', () => {
     }
   }
 
-  function setSort (sortKey) {
-    if (sortKey === '' || sortKey == null) {
-      return
-    }
-
-    const [by, direction] = sortKey.split('|')
-
-    sorting.value = {
+  function setSort (by, direction) {
+    sorting.value = withDefaults(sorting.value, {
       by,
       direction
-    }
+    })
   }
 
   function resetFilters () {
@@ -89,11 +81,7 @@ export const useFilterStore = defineStore('filters', () => {
 
   // Getters
   function getSortKey () {
-    if (!sorting.value.by || !sorting.value.direction) {
-      return ''
-    }
-
-    return `${sorting.value.by}|${sorting.value.direction}`
+    return sorting.value.by
   }
 
   function getTagsValue () {

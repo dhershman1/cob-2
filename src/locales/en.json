@@ -27,11 +27,13 @@
   "confirm": "Are you sure? Your unsaved changes will be lost.",
   "descending": "Descending",
   "filters": {
-    "by-author": "Filter by Author",
-    "by-blueprint": "Filter by Blueprint",
+    "by-author": "Filter by Author Name",
+    "by-blueprint": "Filter by Blueprint Name",
     "by-tag": "Filter by Tag",
     "by-added": "Filter by Date Added",
-    "by-updated": "Filter by Date Updated"
+    "by-updated": "Filter by Date Updated",
+    "by-favorites": "Filter by Favorites",
+    "sort": "Sort By"
   },
   "hide": "Hide",
   "hide-preview": "Hide Preview",

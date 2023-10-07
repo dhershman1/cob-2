@@ -60,36 +60,17 @@
           >
         </label>
       </section>
-      <section class="filter__date-added">
+      <section class="filter__favorites">
         <label
           class="label-control"
-          for="date-added"
+          for="favorites"
         >
-          <p>{{ $t('filters.by-added') }}</p>
           <input
-            id="date-added"
-            v-model="store.filters.dateAdded"
-            name="date-added"
-            type="date"
-            class="control"
-            @keyup.enter.prevent
+            v-model="store.filters.favorites"
+            type="checkbox"
+            name="favorites"
           >
-        </label>
-      </section>
-      <section class="filter__date-updated">
-        <label
-          class="label-control"
-          for="date-updated"
-        >
-          <p>{{ $t('filters.by-updated') }}</p>
-          <input
-            id="date-updated"
-            v-model="store.filters.dateUpdated"
-            name="date-updated"
-            type="date"
-            class="control"
-            @keyup.enter.prevent
-          >
+          {{ $t('filters.by-favorites') }}
         </label>
       </section>
       <section class="filter__sorting">
@@ -97,38 +78,50 @@
           class="label-control"
           for="date-updated"
         >
-          <p>{{ $t('filters.by-updated') }}</p>
+          <p>{{ $t('filters.sort') }}</p>
           <select
             name="sortBy"
-            :value="store.getSortKey()"
+            :value="store.sorting.by"
             @change="setSorting"
           >
             <option :value="null" />
-            <option value="dateCreated|DESC">
-              {{ `${$t('blueprint-info.date-created')} ${$t('descending')}` }}
+            <option value="dateCreated">
+              {{ `${$t('blueprint-info.date-created')}` }}
             </option>
-            <option value="dateCreated|ASC">
-              {{ `${$t('blueprint-info.date-created')} ${$t('ascending')}` }}
+            <option value="dateUpdated">
+              {{ `${$t('blueprint-info.date-updated')}` }}
             </option>
-            <option value="dateUpdated|DESC">
-              {{ `${$t('blueprint-info.date-updated')} ${$t('descending')}` }}
+            <option value="author">
+              {{ `${$t('blueprint-info.author')}` }}
             </option>
-            <option value="dateUpdated|ASC">
-              {{ `${$t('blueprint-info.date-updated')} ${$t('ascending')}` }}
-            </option>
-            <option value="author|DESC">
-              {{ `${$t('blueprint-info.author')} ${$t('descending')}` }}
-            </option>
-            <option value="author|ASC">
-              {{ `${$t('blueprint-info.author')} ${$t('ascending')}` }}
-            </option>
-            <option value="name|DESC">
-              {{ `${$t('name')} ${$t('descending')}` }}
-            </option>
-            <option value="name|ASC">
-              {{ `${$t('name')} ${$t('ascending')}` }}
+            <option value="name">
+              {{ `${$t('name')}` }}
             </option>
           </select>
+          <div>
+            <label for="sortDesc">
+              <input
+                id="sortDesc"
+                v-model="store.sorting.direction"
+                type="radio"
+                name="sortDirecton"
+                value="DESC"
+              >
+              {{ $t('descending') }}
+            </label>
+          </div>
+          <div>
+            <label for="sortAsc">
+              <input
+                id="sortAsc"
+                v-model="store.sorting.direction"
+                type="radio"
+                name="sortDirecton"
+                value="ASC"
+              >
+              {{ $t('ascending') }}
+            </label>
+          </div>
         </label>
       </section>
     </div>
@@ -163,16 +156,35 @@ function applyFilters () {
       blueprint: store.filters.name,
       dateAdded: store.filters.dateAdded,
       dateUpdated: store.filters.dateUpdated,
-      sortBy: store.getSortKey()
+      sortBy: store.sorting.by,
+      sortDir: store.sorting.direction,
+      favorites: store.filters.favorites
     }
   })
 }
 
 function setSorting (e) {
-  store.setSort(e.target.value)
+  if (e.target.name === 'sortBy') {
+    if (!e.target.value) {
+      store.resetSorting()
+    }
+    store.setSort(e.target.value, null)
+  } else {
+    store.setSort(null, e.target.value)
+  }
 }
 
 onMounted(() => {
   store.routerToFilters(route.query)
 })
 </script>
+
+<style scoped>
+.filter__inputs section {
+  margin-top: 0.5rem;
+}
+
+.filter__sorting select {
+  margin: 0.4rem 0;
+}
+</style>
