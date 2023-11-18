@@ -41,10 +41,19 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+
 import BasicCard from '../components/cards/Basic.vue'
 import Filters from '../components/Filters.vue'
 import Pagination from '../components/Pagination.vue'
 import PreviewCard from '../components/cards/Preview.vue'
+import { useBlueprintStore } from '../stores/blueprint'
+
+const blueprintStore = useBlueprintStore()
+
+onMounted(async () => {
+  await blueprintStore.fetchBlueprints()
+})
 </script>
 
 <style scoped>

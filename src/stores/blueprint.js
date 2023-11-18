@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -18,6 +19,7 @@ export const useBlueprintStore = defineStore('blueprint', () => {
     changelog: '',
     extras: {}
   })
+  const allBlueprints = ref([])
 
   // Mutations
   function setBlueprint (bp) {
@@ -45,9 +47,18 @@ export const useBlueprintStore = defineStore('blueprint', () => {
     })
   }
 
+  async function fetchBlueprints () {
+    const bps = await axios.get('/api/blueprints')
+
+    console.log(bps)
+    allBlueprints.value = bps.data
+  }
+
   return {
+    allBlueprints,
     blueprint,
     setBlueprint,
-    fetchBlueprint
+    fetchBlueprint,
+    fetchBlueprints
   }
 })
